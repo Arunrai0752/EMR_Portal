@@ -15,16 +15,9 @@ const Navbar = () => {
                     </Link>
 
                 </div>
-
-
                 <div>
                     <ul className='flex items-center gap-6'>
-
-
-                        <div className='flex gap-4 items-center'>
-                            <Link to="/login">
-                                <li className='text-teal-700 hover:text-teal-500 transition-colors duration-300'>LogIn</li>
-                            </Link>
+                        <div className='flex gap-4 items-center'> 
                             <Link to="/register">
                                 <li className='text-white bg-teal-600 hover:bg-teal-700 px-3 py-1 rounded-md transition-colors duration-300'>SignUp</li>
                             </Link>

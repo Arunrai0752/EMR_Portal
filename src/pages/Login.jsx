@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Login = () => {
-    const [isDoctor, setIsDoctor] = useState(false);
+    const location = useLocation();
+    const isDoctorDefault = location.state?.isDoctorDefault || false;
+    
+    const [isDoctor, setIsDoctor] = useState(isDoctorDefault);
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -18,21 +22,21 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Logging in as:', isDoctor ? 'Doctor' : 'Patient', formData);
-         setFormData({
+        setFormData({
             email: '',
             password: ''
-        })
+        });
     };
 
     useEffect(() => {
         setFormData({
             email: '',
             password: ''
-        })
-    }, [isDoctor ])
+        });
+    }, [isDoctor]);
 
     return (
-        <main className='min-h-[92vh] w-full bg-blue-50 flex justify-center items-center p-4'>
+      <main className='min-h-[92vh] w-full bg-blue-50 flex justify-center items-center p-4'>
             <div className='w-full max-w-md h-[60vh] bg-white rounded-lg shadow-md overflow-hidden border border-blue-100'>
 
                 <div className='flex border-b border-blue-200'>
@@ -131,8 +135,7 @@ const Login = () => {
                     </div>
                 )}
             </div>
-        </main>
-    );
+        </main>    );
 };
 
 export default Login;
